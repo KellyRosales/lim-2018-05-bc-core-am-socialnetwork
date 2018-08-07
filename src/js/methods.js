@@ -17,6 +17,7 @@ const signInButton = document.getElementById('sign-in-button');
 const htmlCall = () => {
   window.location.assign('../src/components/mainpage.html');
 };
+// ../src/components/mainpage.html
 
 //EMAIL register
 registerButton.addEventListener('click', () => {
@@ -24,7 +25,7 @@ registerButton.addEventListener('click', () => {
     if (error) {
       console.log(error.code, error.message);
     } else {
-      alert('¡Te Registrado Exitosamente!');
+      alert('¡Te Has Registrado Exitosamente!');
       htmlCall();
       let user = result.user;
       writeUserData(user.uid, user.displayName, user.email, user.photoURL);
@@ -83,10 +84,10 @@ facebookButton.addEventListener('click', () => {
       console.log(error.credential);
 
     } else {
-      alert('¡Has Sido Logueado Exitosamente!');
-      htmlCall();
       let user = result.user;
       writeUserData(user.uid, user.displayName, user.email, user.photoURL);
+      alert('¡Has Sido Logueado Exitosamente!');
+      htmlCall();
     }
   }
 
