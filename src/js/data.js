@@ -54,4 +54,3 @@ window.signInFacebook = (provider, cb) => {
             cb(error);
         })
 };
-
