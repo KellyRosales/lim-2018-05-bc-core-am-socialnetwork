@@ -1,4 +1,4 @@
-const logOutButton = document.getElementById('btnLogout');
+// const logOutButton = document.getElementById('btnLogout');
 // const userName = document.getElementById('user-name');
 // const bd = document.getElementById('db');
 // const btnSave = document.getElementById('btn-saven');
@@ -8,16 +8,34 @@ const logOutButton = document.getElementById('btnLogout');
 
 // privacySelect.
 // const forPrivacy = () => {
-
 // }
+/* <div id="new-post" class="hiden">
 
-//LogOut button 
-logOutButton.addEventListener('click', () => {
-  firebase.auth().signOut()
-    .then(() => {
-      window.location.assign('../index.html');
-    }).catch(() => {
-      // console.log('error al cerrar sesión')
-    });
-});
+<textarea class="form-control control-label col-sm-4" id="post" rows="3">¿Cuál es tu recomendación?</textarea>
+<button type="button" id="bttn-new-post" class="btn btn-danger">Publicar</button>
+</div>
+
+</div>
+</div>
+
+<!-- el contenido que se va creando -->
+<div class="container">
+<h2>Post</h2>
+<div id="post-container" class="hiden">
+<div class="btn-toolbar" role="toolbar">
+<button type="button" class="btn btn-default btn-sm">
+  <span class="glyphicon glyphicon-star"></span> Star
+</button>
+</div>
+</div> */
+
+// LogOut button 
+// logOutButton.addEventListener('click', () => {
+//   firebase.auth().signOut()
+//     .then(() => {
+//       window.location.assign('../index.html');
+//     }).catch(() => {
+//       // console.log('error al cerrar sesión')
+//     });
+// });
 
