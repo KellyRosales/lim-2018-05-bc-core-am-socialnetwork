@@ -19,119 +19,113 @@ const htmlCall = () => {
 //EMAIL register
 registerButton.addEventListener('click', () => {
 
-
-
   registerEmail = (emailSignUp) => {
-    emailSignUp.value;
+    emailSignUp.value;}
 
-  registerEmail=(emailSignUp)=>{
-    emailSignUp.value ="Email válido"
-
-  }
-
-  registerPassword = (passwordSignUp) => {
-    passwordSignUp.value;
-  }
-
-  const cb = (error, result) => {
-    if (error) {
-    // console.log(error.code, error.message);
-    } else {
-      let user = result.user;
-      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);  
-    }
-  };
-
-  signUp(emailSignUp.value, passwordSignUp.value, cb);
-
-});
-
-///////////////////////////////////Métodos de Inicio de Sesión///////////////////////////////////
-
-//EMAIL LogIn button 
-signInButton.addEventListener('click', () => {
-
-  loginEmail = (emailSignIn) => {
-    emailSignIn.value = "Email válido"
-  }
-
-  loginPassword = (passwordSignIn) => {
-    passwordSignIn.value = "Password válido"
-  }
-
-  const cb = (error, result) => {
-    if (error) {
-      // console.log(error.code, error.message);
-    } else {
-      result;
-      htmlCall();
-    }
-  }
-  signIn(emailSignIn.value, passwordSignIn.value, cb);
-
-});
-
-//GOOGLE LogIn button 
-googleButton.addEventListener('click', () => {
-  let provider;
-  const cb = (error, result) => {
-    if (error) {
-
-    } else {
-      let user = result.user;
-
-      writeUserData(user.uid, user.displayName, user.email, user.photoURL);
-      alert('¡Has Sido Logueado Exitosamente!');
-      htmlCall();
-
-
-      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);  
+    registerEmail = (emailSignUp) => {
+      emailSignUp.value = "Email válido"
 
     }
-  }
-  signInGoogle(provider, cb);
-});
 
-//FACEBOOK LogIn button
-facebookButton.addEventListener('click', () => {
-  let provider;
-  const cb = (error, result) => {
-    if (error) {
-
-      console.log(error.code);
-      console.log(error.message);
-      console.log(error.email);
-      console.log(error.credential);
-
-    } else {
-      let user = result.user;
-      alert('¡Has Sido Logueado Exitosamente!');
-      htmlCall();
-      writeUserData(user.uid, user.displayName, user.email, user.photoURL);
-  
-
-
-    } else {
-      let user = result.user;
-      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);  
+    registerPassword = (passwordSignUp) => {
+      passwordSignUp.value;
     }
-  }
-  signInFacebook(provider, cb);
+
+    const cb = (error, result) => {
+      if (error) {
+        // console.log(error.code, error.message);
+      } else {
+        let user = result.user;
+        writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);
+      }
+    };
+
+    signUp(emailSignUp.value, passwordSignUp.value, cb);
+
 });
 
-const registerLink = document.getElementById('register-link');
-const registerSection = document.getElementById('register-section');
 
-registerLink.addEventListener('click', () => {
-  registerSection.style.display = 'block';
-  loginSection.style.display = 'none';
-});
+  ///////////////////////////////////Métodos de Inicio de Sesión///////////////////////////////////
 
-const loginLink = document.getElementById('login-link');
-const loginSection = document.getElementById('login-section');
+  //EMAIL LogIn button 
+  signInButton.addEventListener('click', () => {
 
-loginLink.addEventListener('click', () => {
-  loginSection.style.display = 'block';
-  registerSection.style.display = 'none';
-});
+    loginEmail = (emailSignIn) => {
+      emailSignIn.value = "Email válido"
+    }
+
+    loginPassword = (passwordSignIn) => {
+      passwordSignIn.value = "Password válido"
+    }
+
+    const cb = (error, result) => {
+      if (error) {
+        // console.log(error.code, error.message);
+      } else {
+        result;
+        htmlCall();
+      }
+    }
+    signIn(emailSignIn.value, passwordSignIn.value, cb);
+
+  });
+
+  //GOOGLE LogIn button 
+  googleButton.addEventListener('click', () => {
+    let provider;
+    const cb = (error, result) => {
+      if (error) {
+
+      } else {
+        let user = result.user;
+
+        writeUserData(user.uid, user.displayName, user.email, user.photoURL);
+        alert('¡Has Sido Logueado Exitosamente!');
+        htmlCall();
+
+
+        writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);
+
+      }
+    }
+    signInGoogle(provider, cb);
+  });
+
+  //FACEBOOK LogIn button
+  facebookButton.addEventListener('click', () => {
+    let provider;
+    const cb = (error, result) => {
+      if (error) {
+
+        console.log(error.code);
+        console.log(error.message);
+        console.log(error.email);
+        console.log(error.credential);
+
+      } else {
+        let user = result.user;
+        alert('¡Has Sido Logueado Exitosamente!');
+        htmlCall();
+        writeUserData(user.uid, user.displayName, user.email, user.photoURL);
+
+      } 
+    }
+    signInFacebook(provider, cb);
+  });
+
+  const registerLink = document.getElementById('register-link');
+  const registerSection = document.getElementById('register-section');
+
+  registerLink.addEventListener('click', () => {
+    registerSection.style.display = 'block';
+    loginSection.style.display = 'none';
+  });
+
+  const loginLink = document.getElementById('login-link');
+  const loginSection = document.getElementById('login-section');
+
+  loginLink.addEventListener('click', () => {
+    loginSection.style.display = 'block';
+    registerSection.style.display = 'none';
+  });
 
