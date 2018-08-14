@@ -161,9 +161,22 @@ El prototipo de alta fidelidad se realizó en [Figma](https://www.figma.com/file
 
 * Como cuarto feedback de testeo, el usuario comentó que la web de posts debe tener un orden vertical para tener un orden.
 
+ **Conclusiones de testing con el prototipo de alta fidelidad con usuarios.**
+
+![testeo-html](img/readme/testeo-figma.jpeg)
+
+Con respecto al logueo de la web, el usuario pudo identificar intuitivamente la funcionalidad de cada botón para poder acceder.
+
+El usuario no pudo entender la funcionalidad del botón de notificaciones, además recomienda que el botón que redirige al perfil tenga una mayor visibilidad para poder interactuar.
+Aunque los botones de editar, eliminar y valorar son visibles y entendibles, no son intuitivos a primera vista. 
+
+ **Conclusiones de testing con el producto en HTML**
+
+Como primer feedback el usuario no pudo acceder intuitivamente a los botones de publicar y editar.
+Como segundo feedback el usuario sugirió definir una medida estática al texto que se ingresa.
+
 
 Luego de completar el proceso de diseño de experiencia del usuario, logramos responder a los requerimientos del proyecto planteados por Laboratoria.
-
 
 ## **DEFINICIÓN DEL PRODUCTO**
 ***
@@ -233,15 +246,15 @@ Adicionalmente realizaremos una campaña de difusión en redes sociales (Twitter
   * [x] Cómo verificaste que el producto les está resolviendo sus problemas.
   * [x] Cómo te asegurarás que estos usuarios usen este producto.
 * [x] Benchmark de las principales redes sociales.
-* [ ] Resumen de entrevistas con usuarios.
+* [x] Resumen de entrevistas con usuarios.
 * [x] Link/screenshots del prototipo de alta fidelidad.
-* [ ] Conclusiones de testing con el prototipo de alta fidelidad con usuarios.
-* [ ] Conclusiones de testing con el producto en HTML.
+* [x] Conclusiones de testing con el prototipo de alta fidelidad con usuarios.
+* [x] Conclusiones de testing con el producto en HTML.
 
 ### Pruebas / tests
 
-* [ ] Tests unitarios cubren un mínimo del 70% de statements, functions, lines y branches.
-* [ ] Pasa tests (y linters) (`npm test`).
+* [x] Tests unitarios cubren un mínimo del 70% de statements, functions, lines y branches.
+* [x] Pasa tests (y linters) (`npm test`).
 
 ### Creación de cuenta (sign up)
 
@@ -257,27 +270,16 @@ Adicionalmente realizaremos una campaña de difusión en redes sociales (Twitter
 * [x] Valida password.
 * [x] Muestra mensajes de error.
 
-*Validaciones del login*
-
-| **Correo** | **Contraseña** | **¿Ingresa?** | 
-| :------- | :------: | :------: | 
-| Correcto  | Incorrecto | No ingresa |
-| Nombre de usuario  | Correcto | No ingresa |
-| Sin arroba | Correcto | No ingresa |
-| Espacios en blanco  | Correcto | No ingresa |
-| Sin .com/.es  | Correcto | No ingresa |
-| Punto seguido del arroba  | Correcto | No ingresa |
-
 
 ### Muro (wall/feed)
 
 * [x] Muestra _muro_.
-* [] Permite publicar nuevos posts.
-* [] Permite eliminar posts.
-* [ ] Pide confirmación antes de borrar posts.
-* [ ] Permite editar posts (in place).
+* [x] Permite publicar nuevos posts.
+* [x] Permite eliminar posts.
+* [x] Pide confirmación antes de borrar posts.
+* [x] Permite editar posts (in place).
 * [ ] Permite publicar y filtrar posts por público/yo.
-* [ ] Permite dar _like_ a los posts y llevar un conteo de ellos.
+* [x] Permite dar _like_ a los posts y llevar un conteo de ellos.
 
 
 ==================================================
