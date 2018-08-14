@@ -79,6 +79,7 @@ En esta fase buscamos las mejores maneras para ejecutar/desarrollar las funciona
 **Sección de Gastronomía de [El Comercio](https://elcomercio.pe/noticias/gastronomia)**
 
 En esta sección realizan galerías de sitios donde podemos ir a comer un determinado platillo, visitar en una ruta, eventos gastronómicos.
+
 ![gastronomía EC](img/readme/EC-gastro.png)
 
 ### **[El Trinche](http://www.eltrinche.com/)**
