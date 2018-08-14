@@ -5,7 +5,7 @@ $(document).ready(() => {
   $containerNewPost = $('#container-new-post');
   $comment = $('#comment');
 
-  firebase.auth().onAuthStateChanged((user)=> {
+  firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       var codeUser = user.uid;
       var nameUser = user.displayName;
@@ -23,6 +23,7 @@ $(document).ready(() => {
             code: codeUser,
             name: nameUser,
             photo: photoUser,
+            private: private,
             like: like
           });
         }
@@ -31,20 +32,21 @@ $(document).ready(() => {
       showPublication();
 
       function showPublication() {
-        firebase.database().ref('bd').on('value',(element) => {
+        firebase.database().ref('bd').on('value', (element) => {
 
-            var data = element.child('publication').val();
-            var uid = Object.keys(data)
-            var arrNewData = []
+          var data = element.child('publication').val();
+          const private =$('#my')
+          var uid = Object.keys(data)
+          var arrNewData = []
 
-            uid.map(elem => {
-              data[elem].uid = elem
-              arrNewData.push(data[elem])
-            })
+          uid.map(elem => {
+            data[elem].uid = elem
+            arrNewData.push(data[elem])
+          })
 
-            $containerNewPost.html('');
-            arrNewData.map(elem => {
-              $containerNewPost.prepend(`
+          $containerNewPost.html('');
+          arrNewData.map(elem => {
+            $containerNewPost.prepend(`
                  <div class="col-xs-12 container-background container-food">
                     <div id="container-icon-user" class="col-xs-6 col-md-1 col-sm-3 col-lg-1 container-food ">
                       <img class="profile img-responsive img-circle user-background" src='${elem.photo}'>
@@ -63,86 +65,86 @@ $(document).ready(() => {
                     </div>
                     <img class="img-responsive like delete container-delete" src='../../img/muro/delete.svg' data-uid=${elem.uid} data-delete=${elem.code}>
                 </div>`);
-            });
-            //Perfil
-            // $('#private').on('click', function(){
-            //   // console.log('hola');
-            //   window.location.assign('../components/perfil.html');
+          });
+          //Perfil
+          // $('#private').on('click', function(){
+          //   // console.log('hola');
+          //   window.location.assign('../components/perfil.html');
 
-            //   var uidData = $(this).data('uid');
+          //   var uidData = $(this).data('uid');
 
-            // })
+          // })
 
-            // cuenta likes
-            $('.container-like').on('click', function(e) {
-              e.preventDefault();
-              var uidData = $(this).data('uid')
-              var likeData = $(this).data('like')
+          // cuenta likes
+          $('.container-like').on('click', function (e) {
+            e.preventDefault();
+            var uidData = $(this).data('uid')
+            var likeData = $(this).data('like')
 
+            uid.map(elem => {
+              if (elem === uidData) {
+                var sum = parseInt(likeData);
+                sum = sum + 1;
+                firebase.database().ref('bd').child('publication').child(elem).child('like').set(sum);
+              }
+            })
+          })
+
+          // eliminar post
+          $('.container-delete').on('click', function (e) {
+            e.preventDefault();
+            var uidData = $(this).data('uid')
+            var uidUser = $(this).data('delete')
+            var textConfirm = confirm("¿seguro que quiere eliminar el post?")
+            if (uidUser === codeUser) {
               uid.map(elem => {
-                if (elem === uidData) {
-                  var sum = parseInt(likeData);
-                  sum = sum + 1;
-                  firebase.database().ref('bd').child('publication').child(elem).child('like').set(sum);
+                if (elem === uidData && textConfirm == true) {
+                  firebase.database().ref('bd').child('publication').child(elem).remove();
+                }
+                else {
+                  //se queda igual
                 }
               })
-            })
+            }
+          })
 
-            // eliminar post
-            $('.container-delete').on('click', function (e) {
-              e.preventDefault();
-              var uidData = $(this).data('uid')
-              var uidUser = $(this).data('delete')
-              var textConfirm = confirm("¿seguro que quiere eliminar el post?")
-              if (uidUser === codeUser) {
-                uid.map(elem => {
-                  if (elem === uidData &&  textConfirm == true ) {
-                    firebase.database().ref('bd').child('publication').child(elem).remove();
-                  }
-                  else{
-                    //se queda igual
-                  }
-                })
-              }
-            })
-
-            $('.container-delete').each(function () {
-              var uidUser = $(this).attr('data-delete');
-              if (codeUser === uidUser) {
-                $(this).removeClass('delete')
-              }
-            });
-
-            // editar post
-            $('.container-edit').each(function () {
-              var uidUser = $(this).attr('data-edit');
-              if (codeUser === uidUser) {
-                $(this).removeClass('delete')
-              }
-            });
-
-            $('.container-edit').on('click', function () {
-              var uidData = $(this).data('uid')
-              var uidUser = $(this).data('edit')
-              if (uidUser === codeUser) {
-                uid.map(elem => {
-                  if (elem === uidData) {
-                    $(this).prev().html(`<div><input type="text" class="input-edit" placeholder="Actualiza"/><button class="button-editar">Guardar</button></div>`)
-                    $(this).prev().find('.button-editar').on('click', function () {
-                      var newPublication = $(this).prev().val();
-                      firebase.database().ref('bd').child('publication').child(elem).child('publication').set(newPublication);
-                      $(this).parent().html(`<p id="publication-day" class="text publication">${newPublication}</p>`)
-                    })
-                  }
-                })
-              }
-            })
+          $('.container-delete').each(function () {
+            var uidUser = $(this).attr('data-delete');
+            if (codeUser === uidUser) {
+              $(this).removeClass('delete')
+            }
           });
+
+          // editar post
+          $('.container-edit').each(function () {
+            var uidUser = $(this).attr('data-edit');
+            if (codeUser === uidUser) {
+              $(this).removeClass('delete')
+            }
+          });
+
+          $('.container-edit').on('click', function () {
+            var uidData = $(this).data('uid')
+            var uidUser = $(this).data('edit')
+            if (uidUser === codeUser) {
+              uid.map(elem => {
+                if (elem === uidData) {
+                  $(this).prev().html(`<div><input type="text" class="input-edit" placeholder="Actualiza"/><button class="button-editar">Guardar</button></div>`)
+                  $(this).prev().find('.button-editar').on('click', function () {
+                    var newPublication = $(this).prev().val();
+                    firebase.database().ref('bd').child('publication').child(elem).child('publication').set(newPublication);
+                    $(this).parent().html(`<p id="publication-day" class="text publication">${newPublication}</p>`)
+                  })
+                }
+              })
+            }
+          })
+        });
       }
     } else {
       // No user is signed in.
     }
-  }); 
+  });
 });
 
 // LogOut button 
@@ -153,4 +155,4 @@ logOutButton.addEventListener('click', () => {
     }).catch((error) => {
       // console.log('error al cerrar sesión');
     });
-  });
+});
