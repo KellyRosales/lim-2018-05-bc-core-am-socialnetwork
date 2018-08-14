@@ -1,14 +1,5 @@
 //Creating a function to show the users in fireBase
 
-
-window.writeUserData=(userId, name, email, imageUrl) =>{
-    firebase.database().ref('users/' + userId).set({
-      username: name,
-      email: email,
-      profile_picture : imageUrl
-    });
-  }
-
 window.writeUserData = (userId, name, email, imageURL, cb) => {
     firebase.database().ref('users/' + userId).set({
         username: name,
@@ -16,7 +7,6 @@ window.writeUserData = (userId, name, email, imageURL, cb) => {
         profile_picture: imageURL,
     }).then(()=> cb())
 }
-
 
 window.signUp = (email, password, cb) => {
     firebase.auth().createUserWithEmailAndPassword(emailSignUp.value, passwordSignUp.value)
@@ -48,7 +38,7 @@ window.signInGoogle = (provider, cb) => {
             cb(null, result);
         })
         .catch((error) => {
-            cb(error, null);
+            cb(error);
         })
 };
 
@@ -65,12 +55,3 @@ window.signInFacebook = (provider, cb) => {
             cb(error);
         })
 };
-
-window.signOff = () => {
-    firebase.auth().signOut()
-        .then(() => {
-            window.location.assign('../index.html');
-        }).catch(() => {
-        });
-}
-

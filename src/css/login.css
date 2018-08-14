@@ -1,8 +1,6 @@
 * {
     box-sizing: border-box;
 }
-@import "bootstrap-social.less";
-
 .container{
     background: url(../../img/css/fondo.jpeg);
     height: 100%;
@@ -18,7 +16,7 @@ body::before{
    top: 0%;  
    bottom: 0%;
    right: 0%;
-   /* height:100%; */
+   height:100%;
    width: 100%;
    background-color: black;
    position: absolute;
