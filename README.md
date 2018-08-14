@@ -161,6 +161,11 @@ El prototipo de alta fidelidad se realizó en [Figma](https://www.figma.com/file
 
 * Como cuarto feedback de testeo, el usuario comentó que la web de posts debe tener un orden vertical para tener un orden.
 
+ **Conclusiones de testing con el prototipo de alta fidelidad con usuarios.**
+
+
+ **Conclusiones de testing con el producto en HTML**
+
 
 Luego de completar el proceso de diseño de experiencia del usuario, logramos responder a los requerimientos del proyecto planteados por Laboratoria.
 

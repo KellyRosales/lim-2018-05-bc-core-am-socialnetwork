@@ -1,118 +1,143 @@
-// const logOutButton = document.getElementById('btnLogout');
-// const username = document.getElementById('user-name');
-// const newPost = document.getElementById('new-post');
-// const inputPost = document.getElementById('post');
-// const buttonToPublic = document.getElementById('bttn-new-post');
-// const privacyOptions = document.getElementById('privacy-options');
 const logOutButton = document.getElementById('btnLogout');
-const userName = document.getElementById('user-name');
-const bd = document.getElementById('new-post2');
-const post = document.getElementById('post2'); //textarea del post principal
-const btnSave = document.getElementById('bttn-new-post2');
-const posts = document.getElementById('posts2');
-const postNew = document.getElementById('createP'); 
 
-function writeNewPost(uid, body) {
+$(document).ready(() => {
+  $buttonFood = $('#button-food');
+  $containerNewPost = $('#container-new-post');
+  $comment = $('#comment');
 
-  // A post entry.
-  let postData = {
-    // author: username,
-    uid: uid,
-    body: body,
-    // title: title,
-    // starCount: 0,
-    // authorPic: picture
-  };
+  firebase.auth().onAuthStateChanged((user)=> {
+    if (user) {
+      var codeUser = user.uid;
+      var nameUser = user.displayName;
+      var photoUser = user.photoURL;
+      var like = 0
 
-  //obtiene una clave para un nuevo post
-  let newPostKey = firebase.database().ref().child('posts').push().key;
+      $buttonFood.on('click', function (event) {
+        if ($comment.val() && $comment.val() !== 0) {
+          var publication = $comment.val();
+          var hour = moment().format('LT');
 
-  // Escribe los datos de los nuevos post's simultaneamente en la lista de post y la lista de user's post
-  let updates = {};
+          firebase.database().ref('bd').child('publication').push({
+            publication: publication,
+            hour: hour,
+            code: codeUser,
+            name: nameUser,
+            photo: photoUser,
+            like: like
+          });
+        }
+      });
 
-  updates['/posts/' + newPostKey] = postData;
-  updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-  firebase.database().ref().update(updates);
-  return newPostKey;
-}
+      showPublication();
 
-btnSave.addEventListener('click', () => { 
-  // verifico qué usuario se ha logueado
-  let userId = firebase.auth().currentUser.uid;
+      function showPublication() {
+        firebase.database().ref('bd').on('value',(element) => {
 
-  // escribo los post en la base de datos
-  // console.log(post.value)
-  const newPost = writeNewPost(userId, post.value);
+            var data = element.child('publication').val();
+            var uid = Object.keys(data)
+            var arrNewData = []
 
-  // postNew.innerHTML=`
-  // <textarea name="" id="${post}" >${post.body}</textarea>
-  // <button onclick="eliminar()"></button>
-  // <button onclick="editar()"></button>
-  // `
+            uid.map(elem => {
+              data[elem].uid = elem
+              arrNewData.push(data[elem])
+            })
 
-  // //creo el boton de actualizar
-  var btnUpdate = document.createElement("input");
-  btnUpdate.setAttribute("value", "Edit");
-  btnUpdate.setAttribute("type", "button");
+            $containerNewPost.html('');
+            arrNewData.map(elem => {
+              $containerNewPost.prepend(`
+                 <div class="col-xs-12 container-background container-food">
+                    <div id="container-icon-user" class="col-xs-6 col-md-1 col-sm-3 col-lg-1 container-food ">
+                      <img class="profile img-responsive img-circle user-background" src='${elem.photo}'>
+                    </div>
+                    <div id="container-publication" class="col-xs-10 ">
+                      <p class="text name" color=yellow >${elem.name}</p>
+                      <div class="container-publication-day" data-newPublication=${elem.code}>
+                        <p id="publication-day" class="text publication">${elem.publication}</p>
+                      </div>
+                      <p class="delete container-edit edit" data-uid=${elem.uid} data-edit=${elem.code}>Editar</p>
+                      <p class="text hour">${elem.hour}</p>
+                      <img class="img-responsive like container-like" src='../../img/muro/like.svg' data-uid=${elem.uid} data-like=${elem.like}>
+                      <p>${elem.like}</p>
+                    </div>
+                    <img class="img-responsive like delete container-delete" src='../../img/muro/delete.svg' data-uid=${elem.uid} data-delete=${elem.code}>
+                </div>`);
+            });
 
-  //creo el boton de eliminar
-  var btnDelete = document.createElement("input");
-  btnDelete.setAttribute("value", "Delete");
-  btnDelete.setAttribute("type", "button");
+            // cuenta likes
+            $('.container-like').on('click', (e) => {
+              e.preventDefault();
+              var uidData = $(this).data('uid')
+              var likeData = $(this).data('like')
 
-  var contPost = document.createElement('div');
+              uid.map(elem => {
+                if (elem === uidData) {
+                  var sum = parseInt(likeData);
+                  sum = sum + 1;
+                  firebase.database().ref('bd').child('publication').child(elem).child('like').set(sum);
+                }
+              })
+            })
 
-  // creo el textarea donde se publican los nuevos post
-  var textPost = document.createElement('textarea');
-  textPost.disabled = true;
-  textPost.setAttribute("id", "new-user-post");
-// console.log(newPost);
-  // le añado el valor del post
-  let result = post.value;
-  // console.log(result);
-  textPost.innerHTML = result;
+            // eliminar post
+            $('.container-delete').on('click', function (e) {
+              e.preventDefault();
+              var uidData = $(this).data('uid')
+              var uidUser = $(this).data('delete')
+              if (uidUser === codeUser) {
+                uid.map(elem => {
+                  var textConfirm = confirm("¿seguro que quiere eliminar el post?")
+                  if (elem === uidData &&  textConfirm == true ) {
+                    firebase.database().ref('bd').child('publication').child(elem).remove();
+                  }
+                  else{
+                    //se queda igual
+                  }
+                })
+              }
+            })
 
-   
+            $('.container-delete').each(function () {
+              var uidUser = $(this).attr('data-delete');
+              if (codeUser === uidUser) {
+                $(this).removeClass('delete')
+              }
+            });
 
-  // le doy funcionalidad al botón 'eliminar'
-  btnDelete.addEventListener('click', () => {
-    // ubico el post que voy a eliminar (Base de datos)
-    firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
-    firebase.database().ref().child('posts/' + newPost).remove();
+            // editar post
+            $('.container-edit').each(function () {
+              var uidUser = $(this).attr('data-edit');
+              if (codeUser === uidUser) {
+                $(this).removeClass('delete')
+              }
+            });
 
-    //falta crear una función que elimine post a post porque actualmente 
-    // está eliminando todos los posts (DOM)
-    while (posts.firstChild) post.removeChild(posts.firstChild);
+            $('.container-edit').on('click', function () {
+              var uidData = $(this).data('uid')
+              var uidUser = $(this).data('edit')
+              if (uidUser === codeUser) {
+                uid.map(elem => {
+                  if (elem === uidData) {
+                    $(this).prev().html(`<div><input type="text" class="input-edit" placeholder="Actualiza"/><button class="button-editar">Guardar</button></div>`)
+                    $(this).prev().find('.button-editar').on('click', function () {
+                      var newPublication = $(this).prev().val();
+                      firebase.database().ref('bd').child('publication').child(elem).child('publication').set(newPublication);
+                      $(this).parent().html(`<p id="publication-day" class="text publication">${newPublication}</p>`)
+                    })
+                    //
+                  }
+                })
+              }
+            })
 
-    // Para no recargar la pagina
-    window.location.reload();
-  });
-  // boton editar
-  btnUpdate.addEventListener('click', () => {
-    const newUpdate = document.getElementById(newPost);
-
-    const nuevoPost = {
-      body: newUpdate.value,
-    };
-
-    var updatesUser = {};
-    var updatesPost = {};
-
-    updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
-    updatesPost['/posts/' + newPost ] = nuevoPost;
-
-    firebase.database().ref().update(updatesUser);
-    firebase.database().ref().update(updatesPost);
+          });
+      }
+    } else {
+      // No user is signed in.
+    }
     
   });
-
-  contPost.appendChild(textPost);
-  contPost.appendChild(btnUpdate );
-  contPost.appendChild(btnDelete);
-  posts.appendChild(contPost);
-
-})
-
+  
+});
 
 // LogOut button 
 logOutButton.addEventListener('click', () => {
@@ -122,36 +147,4 @@ logOutButton.addEventListener('click', () => {
     }).catch((error) => {
       // console.log('error al cerrar sesión');
     });
-});
-
-
-
-// // Get a reference to the database service
-// var database = firebase.database();
-
-// function writeNewPost(uid, username, title, body) {
-//   // A post entry.
-//   var postData = {
-//     author: username,
-//     uid: uid,
-//     body: body,
-//     title: title,
-//     starCount: 0,
-//   };
-
-//   // Get a key for a new Post.
-//   var newPostKey = firebase.database().ref().child('posts').push().key;
-
-//   // Write the new post's data simultaneously in the posts list and the user's post list.
-//   var updates = {};
-//   updates['/posts/' + newPostKey] = postData;
-//   updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-
-//   return firebase.database().ref().update(updates);
-// }
-
-// //Recuento de likes o star
-// var starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
-// starCountRef.on('value', function(snapshot) {
-//   updateStarCount(postElement, snapshot.val());
-// });
+  });

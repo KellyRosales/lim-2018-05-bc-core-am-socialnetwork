@@ -6,124 +6,71 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Import Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="mainpage.css">
-  <!-- iconos -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- firestore -->
-  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+  <link rel="stylesheet" href="../../bootstrap-4.1.2-dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../css/mainpage.css">
 </head>
 
 <body>
-  <header class="header">
-    <div class="container">
-      <nav class="navbar navbar-dark navbar-custom p-0">
-        <a class="navbar-brand" href="#">
-          <img src="../../img/css/wariqué.png" width="30" height="30" class="d-inline-block align-top" alt=""> WariQué?
-        </a>
-        <!-- boton de salida -->
-        <div id="logout" class="hiden">
-          <button type="button" id="btnLogout" class="btn btn-primary btn-sm float-right" value="Logout">Salir</button>
-        </div>
+
+  <!-- Section Container User -->
+  <main>
+    <div class="container-fluid">
+      <!-- titulo -->
+      <nav class="navbar ">
+        <img src="../../img/css/wariqué.png" class="img-responsive img-circle" id="img-warique">
+        <p class="text-center">¿Qué se te antoja hoy?</p>
+        <form class="form-inline">
+          <button type="button" id="btnLogout" class="btn btn-warning" value="Logout">Salir</button>
+        </form>
       </nav>
-    </div>
-  </header>
-
-  <!-- bienvenida de usuarios -->
-  <div class="container">
-    <!-- usuario -->
-    <div class="container">
-      <img src="/img/user-icon-72x72(1).png" type="image/png" class="icon-profile" href="/apple-icon-72x72.pn">
-      <h4 id="user-name" class="d-inline-block align-top">¡Bienvenid@!</h4>
-      <!-- <p id="user-name" class="d-inline-block align-bottom">J</p> -->
-    </div>
-
-    <!-- ingreso de post -->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-5" id="firstSection">
-          <form class="border p-4 mb-4" id="form">
-            <div class="form-group" id="new-post">
-              <label>¿Qué quieres recomendar?</label>
-              <input type="text" class="form-control" id="post" placeholder="Escribe tu recomendación" />
-            </div>
-            <!-- Selector privacidad -->
-            <select name="privacy-option" id="privacy-option" class="form-control col-md-4 mb-3">
-              <option value="privacidad">Privacidad</option>
-              <option value="private">Privado</option>
-              <option value="public">Público</option>
-            </select>
-
-            <button type="submit" id="bttn-new-post" class="btn btn-primary">Publicar</button>
-            <!-- <button style="display: none" id="btnUpdate" class="btn btn-success">Actualizar</button>
-              <button style="display: none" id="btnCancel" class="btn btn-danger">Cancelar</button> -->
-          </form>
+      <br>
+      <!-- contenedor de posts -->
+      <div class="col-xs-12">
+        <div class="input-group container-input">
+          <textarea id="comment" class="form-control" rows="5" placeholder="Comenta tu warique preferido"></textarea>
+          <span id="button-food">
+            <i class="fa fa-cutlery fa-3x" aria-hidden="true"></i>
+          </span>
         </div>
-        <div class="col-md-6" id="cardSection">
-          <div class="container post">
-            <div class="row">
-              <div class="col-md-12 wall" id="wall">
-                <!-- <form class="border p-4 mb-4" id="form"> -->
-                <h5 class="card-title">Últimas actualizaciones:</h5>
-                <div class="card mb-3">
-                  <div class="card-body">
-                    <div id="user-container" class="hiden">Mario</div>
-                    <div id="post-container" class="hiden card-text">
-                      Ayer probé por segunda vez las sushi donuts de @yanomami_peru y si bien la primera vez que las probé hace unos meses me parecieron
-                      buenas, ahora están muuuuuucho mejores, está vez probé 3 sabores, ahorita les cuento de que son:- Apaltada:
-                      pesca del día, palta, canchita (hecha polvo), togarashi y viene con su salsa acevichadas.
-                    </div>
-                    <button type="submit" style="color:white" class="btn btn-warning">Editar</button>
-                    <button type="submit" class="btn btn-danger">Borrar</button>
-                  </div>
-                </div>
-                <!-- </form> -->
-              </div>
-            </div>
+      <!-- contenedor de posts nuevos  -->
+      <div id="container-new-post" class="col-xs-12 outline">
+
+      </div>
+
+    </div>
+  </main>
+    <!-- footer -->
+    <!-- <nav class="container footer">
+        <div class="row">
+          <div class="col">
+            <i class="material-icons">home</i>
+          </div>
+          <div class="col">
+            <i class="material-icons">message</i>
+          </div>
+          <div class="col">
+            <i class="material-icons">notifications</i>
+          </div>
+          <div class="col">
+            <i class="material-icons">person</i>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </nav> -->
 
-  <!-- footer -->
-  <div class="container footer">
-    <div class="row">
-      <div class="col">
-        <i class="material-icons">home</i>
-      </div>
-      <div class="col">
-        <i class="material-icons">message</i>
-      </div>
-      <div class="col">
-        <i class="material-icons">notifications</i>
-      </div>
-      <div class="col">
-        <i class="material-icons">person</i>
-      </div>
-    </div>
-  </div>
-
-
-
-  <!-- ingreso de post -->
-  <div id="new-post2" class="hiden">
-    <textarea class="form-control control-label col-sm-4"  id="post2" rows="3"></textarea>
-    <button type="button" id="bttn-new-post2" class="btn btn-danger">Publicar</button>
-  </div>
-
-
-  <div id="posts2" class="hiden">
-    <h3>post</h3>
-    <div id="createP">
-    </div>
-  </div>
-
-
+  <!-- Import jQuery and Bootstrap.js -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
   <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
   <script>
     // Initialize Firebase
     var config = {
@@ -138,7 +85,7 @@
   </script>
   <script src="../js/data.js"></script>
   <script src="../js/mainpage.js"></script>
-  <!-- <script src="../js/methods.js"></script> -->
+
 </body>
 
 </html>

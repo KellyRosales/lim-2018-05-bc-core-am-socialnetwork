@@ -1,10 +1,7 @@
 //SignUp variables
-// const nameSignUp = document.getElementById('name-signup');
-// const userSignUp = document.getElementById('user-signup');
 const emailSignUp = document.getElementById('email-signup');
-const passwordSignUp = document.getElementById('password-signup');
-// const passwordValidation = document.getElementById('password-validation');
 const registerButton = document.getElementById('register');
+
 //SignIn variables
 const googleButton = document.getElementById('google-button');
 const facebookButton = document.getElementById('facebook-button');
