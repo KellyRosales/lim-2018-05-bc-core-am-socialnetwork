@@ -10,8 +10,7 @@
   <!-- Import Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="../../bootstrap-4.1.2-dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="../css/mainpage.css">
 </head>
@@ -27,6 +26,7 @@
         <p class="text-center">¿Qué se te antoja hoy?</p>
         <form class="form-inline">
           <button type="button" id="btnLogout" class="btn btn-warning" value="Logout">Salir</button>
+          <button type="button" id="btnProfile" class="btn btn-light">Perfil</button>
         </form>
       </nav>
       <br>
@@ -35,16 +35,17 @@
         <div class="input-group container-input">
           <textarea id="comment" class="form-control" rows="5" placeholder="Comenta tu warique preferido"></textarea>
 
-          <select class="form-control col-md-4 mb-3">
-            <option>Small select</option>
-            <option>Small select</option>
-          </select>
-
           <span id="button-food">
             <i class="fa fa-cutlery fa-3x" aria-hidden="true"></i>
             <p>Publicar</p>
           </span>
         </div>
+
+        <select id="myselect" class="form-control">
+          <option id="priv" value="private">Privado</option>
+          <option id="pub" value="public">Público</option>
+        </select>
+
 
         <!-- contenedor de posts nuevos  -->
         <div id="container-new-post" class="col-xs-12 outline">
