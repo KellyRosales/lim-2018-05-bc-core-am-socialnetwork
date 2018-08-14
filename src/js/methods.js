@@ -15,7 +15,6 @@ const signInButton = document.getElementById('sign-in-button');
 const htmlCall = () => {
   window.location.assign('../src/components/mainpage.html');
 };
-// ../src/components/mainpage.html
 
 //EMAIL register
 registerButton.addEventListener('click', () => {
