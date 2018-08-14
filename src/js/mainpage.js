@@ -5,7 +5,10 @@ $(document).ready(() => {
   $containerNewPost = $('#container-new-post');
   $comment = $('#comment');
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 479c10ff03ccee620d75fb37c9c4586e73865488
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       var codeUser = user.uid;
@@ -26,8 +29,13 @@ $(document).ready(() => {
             code: codeUser,
             name: nameUser,
             photo: photoUser,
+<<<<<<< HEAD
             like: like,
             postStatus : postStatus ,
+=======
+            private: private,
+            like: like
+>>>>>>> 479c10ff03ccee620d75fb37c9c4586e73865488
           });
          
         }
@@ -39,6 +47,10 @@ $(document).ready(() => {
         firebase.database().ref('bd').on('value', (element) => {
 
           var data = element.child('publication').val();
+<<<<<<< HEAD
+=======
+          const private =$('#my')
+>>>>>>> 479c10ff03ccee620d75fb37c9c4586e73865488
           var uid = Object.keys(data)
           var arrNewData = []
 
@@ -46,6 +58,7 @@ $(document).ready(() => {
             data[elem].uid = elem
             arrNewData.push(data[elem])
           })
+<<<<<<< HEAD
 
           $containerNewPost.html('');
           arrNewData.map(elem => {
@@ -53,6 +66,13 @@ $(document).ready(() => {
 
             $containerNewPost.prepend(`
                  <div class="col-xs-12 container-background container-food container-public-private">
+=======
+
+          $containerNewPost.html('');
+          arrNewData.map(elem => {
+            $containerNewPost.prepend(`
+                 <div class="col-xs-12 container-background container-food">
+>>>>>>> 479c10ff03ccee620d75fb37c9c4586e73865488
                     <div id="container-icon-user" class="col-xs-6 col-md-1 col-sm-3 col-lg-1 container-food ">
                       <img class="profile img-responsive img-circle user-background" src='${elem.photo}'>
                     </div>
@@ -72,6 +92,7 @@ $(document).ready(() => {
                     <p>${elem.postStatus}</p>
                 </div>`);
           });
+<<<<<<< HEAD
           
         // Privacidad
         // $('#myselect').change(function(){
@@ -146,15 +167,91 @@ $(document).ready(() => {
                     firebase.database().ref('bd').child('publication').child(elem).child('publication').set(newPublication);
                     $(this).parent().html(`<p id="publication-day" class="text publication">${newPublication}</p>`)
                   })
+=======
+          //Perfil
+          // $('#private').on('click', function(){
+          //   // console.log('hola');
+          //   window.location.assign('../components/perfil.html');
+
+          //   var uidData = $(this).data('uid');
+
+          // })
+
+          // cuenta likes
+          $('.container-like').on('click', function (e) {
+            e.preventDefault();
+            var uidData = $(this).data('uid')
+            var likeData = $(this).data('like')
+
+            uid.map(elem => {
+              if (elem === uidData) {
+                var sum = parseInt(likeData);
+                sum = sum + 1;
+                firebase.database().ref('bd').child('publication').child(elem).child('like').set(sum);
+              }
+            })
+          })
+
+          // eliminar post
+          $('.container-delete').on('click', function (e) {
+            e.preventDefault();
+            var uidData = $(this).data('uid')
+            var uidUser = $(this).data('delete')
+            var textConfirm = confirm("¿seguro que quiere eliminar el post?")
+            if (uidUser === codeUser) {
+              uid.map(elem => {
+                if (elem === uidData && textConfirm == true) {
+                  firebase.database().ref('bd').child('publication').child(elem).remove();
+                }
+                else {
+                  //se queda igual
+>>>>>>> 479c10ff03ccee620d75fb37c9c4586e73865488
+                }
+              })
+            }
+          })
+<<<<<<< HEAD
+        });
+      }
+
+
+      var postPrivate = $('#myselect').val() === "public" ? true: false
+=======
+
+          $('.container-delete').each(function () {
+            var uidUser = $(this).attr('data-delete');
+            if (codeUser === uidUser) {
+              $(this).removeClass('delete')
+            }
+          });
+
+          // editar post
+          $('.container-edit').each(function () {
+            var uidUser = $(this).attr('data-edit');
+            if (codeUser === uidUser) {
+              $(this).removeClass('delete')
+            }
+          });
+
+          $('.container-edit').on('click', function () {
+            var uidData = $(this).data('uid')
+            var uidUser = $(this).data('edit')
+            if (uidUser === codeUser) {
+              uid.map(elem => {
+                if (elem === uidData) {
+                  $(this).prev().html(`<div><input type="text" class="input-edit" placeholder="Actualiza"/><button class="button-editar">Guardar</button></div>`)
+                  $(this).prev().find('.button-editar').on('click', function () {
+                    var newPublication = $(this).prev().val();
+                    firebase.database().ref('bd').child('publication').child(elem).child('publication').set(newPublication);
+                    $(this).parent().html(`<p id="publication-day" class="text publication">${newPublication}</p>`)
+                  })
                 }
               })
             }
           })
         });
       }
-
-
-      var postPrivate = $('#myselect').val() === "public" ? true: false
+>>>>>>> 479c10ff03ccee620d75fb37c9c4586e73865488
     } else {
       // No user is signed in.
     }
@@ -171,8 +268,11 @@ logOutButton.addEventListener('click', () => {
       // console.log('error al cerrar sesión');
     });
 });
+<<<<<<< HEAD
 
 
 $('#btnProfile').on('click', function () {
    window.location.assign('../components/perfil.html');
 })
+=======
+>>>>>>> 479c10ff03ccee620d75fb37c9c4586e73865488
