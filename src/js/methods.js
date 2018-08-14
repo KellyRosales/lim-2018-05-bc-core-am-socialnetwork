@@ -1,15 +1,13 @@
 //SignUp variables
-// const nameSignUp = document.getElementById('name-signup');
-// const userSignUp = document.getElementById('user-signup');
 const emailSignUp = document.getElementById('email-signup');
-const passwordSignUp = document.getElementById('password-signup');
-// const passwordValidation = document.getElementById('password-validation');
 const registerButton = document.getElementById('register');
+
 //SignIn variables
 const googleButton = document.getElementById('google-button');
 const facebookButton = document.getElementById('facebook-button');
 const emailSignIn = document.getElementById('email-signin');
 const passwordSignIn = document.getElementById('password-signin');
+const passwordSignUp = document.getElementById('password-signup');
 const signInButton = document.getElementById('sign-in-button');
 
 
@@ -22,8 +20,13 @@ const htmlCall = () => {
 registerButton.addEventListener('click', () => {
 
 
+
   registerEmail = (emailSignUp) => {
     emailSignUp.value;
+
+  registerEmail=(emailSignUp)=>{
+    emailSignUp.value ="Email válido"
+
   }
 
   registerPassword = (passwordSignUp) => {
@@ -32,12 +35,10 @@ registerButton.addEventListener('click', () => {
 
   const cb = (error, result) => {
     if (error) {
-      // console.log(error.code, error.message);
+    // console.log(error.code, error.message);
     } else {
-      alert('¡Te Has Registrado Exitosamente!');
-      htmlCall();
       let user = result.user;
-      writeUserData(user.uid, user.displayName, user.email, user.photoURL);
+      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);  
     }
   };
 
@@ -58,17 +59,14 @@ signInButton.addEventListener('click', () => {
     passwordSignIn.value = "Password válido"
   }
 
-
   const cb = (error, result) => {
     if (error) {
       // console.log(error.code, error.message);
     } else {
       result;
-      alert('Has Iniciado Sesión Correctamente');
       htmlCall();
     }
   }
-
   signIn(emailSignIn.value, passwordSignIn.value, cb);
 
 });
@@ -78,15 +76,16 @@ googleButton.addEventListener('click', () => {
   let provider;
   const cb = (error, result) => {
     if (error) {
-      // console.log(error.code);
-      // console.log(error.message);
-      // console.log(error.email);
-      // console.log(error.credential);
+
     } else {
       let user = result.user;
+
       writeUserData(user.uid, user.displayName, user.email, user.photoURL);
       alert('¡Has Sido Logueado Exitosamente!');
       htmlCall();
+
+
+      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);  
 
     }
   }
@@ -98,6 +97,7 @@ facebookButton.addEventListener('click', () => {
   let provider;
   const cb = (error, result) => {
     if (error) {
+
       console.log(error.code);
       console.log(error.message);
       console.log(error.email);
@@ -109,6 +109,11 @@ facebookButton.addEventListener('click', () => {
       htmlCall();
       writeUserData(user.uid, user.displayName, user.email, user.photoURL);
   
+
+
+    } else {
+      let user = result.user;
+      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);  
     }
   }
   signInFacebook(provider, cb);
