@@ -1,12 +1,9 @@
 //SignUp variables
 const emailSignUp = document.getElementById('email-signup');
 const registerButton = document.getElementById('register');
-const errorMail = document.getElementById('error-email');
-const passError = document.getElementById('error-pass');
 
 //SignIn variables
 const googleButton = document.getElementById('google-button');
-const errorGoogleButton = document.getElementById('')
 const facebookButton = document.getElementById('facebook-button');
 const emailSignIn = document.getElementById('email-signin');
 const passwordSignIn = document.getElementById('password-signin');
@@ -14,30 +11,28 @@ const passwordSignUp = document.getElementById('password-signup');
 const signInButton = document.getElementById('sign-in-button');
 
 
-
 //Function to call the other HTML where's the main page of the app
 const htmlCall = () => {
   window.location.assign('../src/components/mainpage.html');
 };
 
-
 //EMAIL register
 registerButton.addEventListener('click', () => {
 
-  registerEmail = (emailSignUp) => {
-    emailSignUp.value = "Email válido"
+  registerEmail=(emailSignUp)=>{
+    emailSignUp.value ="Email válido"
   }
 
-  registerPassword = (passwordSignUp) => {
-    passwordSignUp.value = "contraseña válida"
+  registerPassword=(passwordSignUp)=>{
+    passwordSignUp.value="contraseña válida"
   }
 
   const cb = (error, result) => {
     if (error) {
-      // console.log(error.code, error.message);
+    // console.log(error.code, error.message);
     } else {
       let user = result.user;
-      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);
+      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);  
     }
   };
 
@@ -50,12 +45,12 @@ registerButton.addEventListener('click', () => {
 //EMAIL LogIn button 
 signInButton.addEventListener('click', () => {
 
-  loginEmail = (emailSignIn) => {
-    emailSignIn.value = "Email válido"
+  loginEmail=(emailSignIn)=>{
+    emailSignIn.value ="Email válido"
   }
 
-  loginPassword = (passwordSignIn) => {
-    passwordSignIn.value = "Password válido"
+  loginPassword=(passwordSignIn)=>{
+    passwordSignIn.value= "Password válido"
   }
 
   const cb = (error, result) => {
@@ -79,7 +74,7 @@ googleButton.addEventListener('click', () => {
 
     } else {
       let user = result.user;
-      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);
+      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);  
     }
   }
   signInGoogle(provider, cb);
@@ -93,7 +88,7 @@ facebookButton.addEventListener('click', () => {
 
     } else {
       let user = result.user;
-      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);
+      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);  
     }
   }
 

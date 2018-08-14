@@ -54,4 +54,4 @@ window.signInFacebook = (provider, cb) => {
         .catch((error) => {
             cb(error);
         })
-    }
+};
