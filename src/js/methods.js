@@ -7,6 +7,7 @@ const googleButton = document.getElementById('google-button');
 const facebookButton = document.getElementById('facebook-button');
 const emailSignIn = document.getElementById('email-signin');
 const passwordSignIn = document.getElementById('password-signin');
+const passwordSignUp = document.getElementById('password-signup');
 const signInButton = document.getElementById('sign-in-button');
 
 

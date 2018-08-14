@@ -51,6 +51,7 @@ $(document).ready(() => {
                     </div>
                     <div id="container-publication" class="col-xs-10 ">
                       <p class="text name" color=yellow >${elem.name}</p>
+            
                       <div class="container-publication-day" data-newPublication=${elem.code}>
                         <p id="publication-day" class="text publication">${elem.publication}</p>
                       </div>
@@ -58,13 +59,22 @@ $(document).ready(() => {
                       <p class="text hour">${elem.hour}</p>
                       <img class="img-responsive like container-like" src='../../img/muro/like.svg' data-uid=${elem.uid} data-like=${elem.like}>
                       <p>${elem.like}</p>
+                      
                     </div>
                     <img class="img-responsive like delete container-delete" src='../../img/muro/delete.svg' data-uid=${elem.uid} data-delete=${elem.code}>
                 </div>`);
             });
+            //Perfil
+            // $('#private').on('click', function(){
+            //   // console.log('hola');
+            //   window.location.assign('../components/perfil.html');
+
+            //   var uidData = $(this).data('uid');
+
+            // })
 
             // cuenta likes
-            $('.container-like').on('click', (e) => {
+            $('.container-like').on('click', function(e) {
               e.preventDefault();
               var uidData = $(this).data('uid')
               var likeData = $(this).data('like')
@@ -83,9 +93,9 @@ $(document).ready(() => {
               e.preventDefault();
               var uidData = $(this).data('uid')
               var uidUser = $(this).data('delete')
+              var textConfirm = confirm("¿seguro que quiere eliminar el post?")
               if (uidUser === codeUser) {
                 uid.map(elem => {
-                  var textConfirm = confirm("¿seguro que quiere eliminar el post?")
                   if (elem === uidData &&  textConfirm == true ) {
                     firebase.database().ref('bd').child('publication').child(elem).remove();
                   }
@@ -123,20 +133,16 @@ $(document).ready(() => {
                       firebase.database().ref('bd').child('publication').child(elem).child('publication').set(newPublication);
                       $(this).parent().html(`<p id="publication-day" class="text publication">${newPublication}</p>`)
                     })
-                    //
                   }
                 })
               }
             })
-
           });
       }
     } else {
       // No user is signed in.
     }
-    
-  });
-  
+  }); 
 });
 
 // LogOut button 
