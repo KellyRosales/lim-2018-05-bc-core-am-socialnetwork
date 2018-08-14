@@ -1,36 +1,45 @@
 //SignUp variables
-const nameSignUp = document.getElementById('name-signup');
-const userSignUp = document.getElementById('user-signup');
 const emailSignUp = document.getElementById('email-signup');
-const passwordSignUp = document.getElementById('password-signup');
-const passwordValidation = document.getElementById('password-validation');
 const registerButton = document.getElementById('register');
+const errorMail = document.getElementById('error-email');
+const passError = document.getElementById('error-pass');
+
 //SignIn variables
 const googleButton = document.getElementById('google-button');
+const errorGoogleButton = document.getElementById('')
 const facebookButton = document.getElementById('facebook-button');
 const emailSignIn = document.getElementById('email-signin');
 const passwordSignIn = document.getElementById('password-signin');
+const passwordSignUp = document.getElementById('password-signup');
 const signInButton = document.getElementById('sign-in-button');
+
 
 
 //Function to call the other HTML where's the main page of the app
 const htmlCall = () => {
   window.location.assign('../src/components/mainpage.html');
 };
-// ../src/components/mainpage.html
+
 
 //EMAIL register
 registerButton.addEventListener('click', () => {
+
+  registerEmail = (emailSignUp) => {
+    emailSignUp.value = "Email válido"
+  }
+
+  registerPassword = (passwordSignUp) => {
+    passwordSignUp.value = "contraseña válida"
+  }
+
   const cb = (error, result) => {
     if (error) {
-      console.log(error.code, error.message);
+      // console.log(error.code, error.message);
     } else {
-      alert('¡Te Has Registrado Exitosamente!');
-      htmlCall();
       let user = result.user;
-      writeUserData(user.uid, user.displayName, user.email, user.photoURL);
+      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);
     }
-  }
+  };
 
   signUp(emailSignUp.value, passwordSignUp.value, cb);
 
@@ -40,15 +49,23 @@ registerButton.addEventListener('click', () => {
 
 //EMAIL LogIn button 
 signInButton.addEventListener('click', () => {
+
+  loginEmail = (emailSignIn) => {
+    emailSignIn.value = "Email válido"
+  }
+
+  loginPassword = (passwordSignIn) => {
+    passwordSignIn.value = "Password válido"
+  }
+
   const cb = (error, result) => {
     if (error) {
-      console.log(error.code, error.message);
+      // console.log(error.code, error.message);
     } else {
-      alert('Has Iniciado Sesión Correctamente');
+      result;
       htmlCall();
     }
   }
-
   signIn(emailSignIn.value, passwordSignIn.value, cb);
 
 });
@@ -59,15 +76,10 @@ googleButton.addEventListener('click', () => {
   let provider;
   const cb = (error, result) => {
     if (error) {
-      console.log(error.code);
-      console.log(error.message);
-      console.log(error.email);
-      console.log(error.credential);
+
     } else {
-      alert('¡Has Sido Logueado Exitosamente!');
-      htmlCall();
       let user = result.user;
-      writeUserData(user.uid, user.displayName, user.email, user.photoURL);
+      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);
     }
   }
   signInGoogle(provider, cb);
@@ -78,16 +90,10 @@ facebookButton.addEventListener('click', () => {
   let provider;
   const cb = (error, result) => {
     if (error) {
-      console.log(error.code);
-      console.log(error.message);
-      console.log(error.email);
-      console.log(error.credential);
 
     } else {
       let user = result.user;
-      writeUserData(user.uid, user.displayName, user.email, user.photoURL);
-      alert('¡Has Sido Logueado Exitosamente!');
-      htmlCall();
+      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);
     }
   }
 
