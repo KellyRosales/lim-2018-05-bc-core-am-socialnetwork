@@ -49,7 +49,7 @@ $(document).ready(() => {
 
           $containerNewPost.html('');
           arrNewData.map(elem => {
-            
+
 
             $containerNewPost.prepend(`
                  <div class="col-xs-12 container-background container-food container-public-private">
@@ -74,17 +74,17 @@ $(document).ready(() => {
           });
           
         // Privacidad
-        $('#myselect').change(function(){
-          var selec =$('#myselect option:selected').val();
-          if(selec == "private"){
+        // $('#myselect').change(function(){
+        //   var selec =$('#myselect option:selected').val();
+        //   if(selec == "private"){
 
-            document.location.href = "../components/perfil.html)" + $(this).serialize();
+        //     document.location.href = "../components/perfil.html)" + $(this).serialize();
       
-          }
-          else if(selec== "public"){
+        //   }
+        //   else if(selec== "public"){
 
-          }
-        })
+        //   }
+        // })
         
           // cuenta likes
           $('.container-like').on('click', function (e) {
