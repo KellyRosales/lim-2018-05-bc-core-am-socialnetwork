@@ -1,3 +1,20 @@
+#img-warique{
+    border-radius:100px 100px;
+    /* outline: 1px solid black ; */
+    max-width: 5%;    
+}
+
+nav p{
+    font-size: 200%;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: oblique;
+    font-weight: bold;
+    color: white;
+}
+ nav{
+     background: rgb(194, 46, 46);
+ }
+=======
 * {
   margin: 0;
   padding: 0;
@@ -94,3 +111,4 @@ h2{
   width:100%;
   background:rgba(167, 167, 167, 0.603);
 } 
+

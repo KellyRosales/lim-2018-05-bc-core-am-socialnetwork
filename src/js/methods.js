@@ -19,12 +19,18 @@ const htmlCall = () => {
 //EMAIL register
 registerButton.addEventListener('click', () => {
 
+
+
+  registerEmail = (emailSignUp) => {
+    emailSignUp.value;
+
   registerEmail=(emailSignUp)=>{
     emailSignUp.value ="Email válido"
+
   }
 
-  registerPassword=(passwordSignUp)=>{
-    passwordSignUp.value="contraseña válida"
+  registerPassword = (passwordSignUp) => {
+    passwordSignUp.value;
   }
 
   const cb = (error, result) => {
@@ -45,12 +51,12 @@ registerButton.addEventListener('click', () => {
 //EMAIL LogIn button 
 signInButton.addEventListener('click', () => {
 
-  loginEmail=(emailSignIn)=>{
-    emailSignIn.value ="Email válido"
+  loginEmail = (emailSignIn) => {
+    emailSignIn.value = "Email válido"
   }
 
-  loginPassword=(passwordSignIn)=>{
-    passwordSignIn.value= "Password válido"
+  loginPassword = (passwordSignIn) => {
+    passwordSignIn.value = "Password válido"
   }
 
   const cb = (error, result) => {
@@ -66,7 +72,6 @@ signInButton.addEventListener('click', () => {
 });
 
 //GOOGLE LogIn button 
-
 googleButton.addEventListener('click', () => {
   let provider;
   const cb = (error, result) => {
@@ -74,7 +79,14 @@ googleButton.addEventListener('click', () => {
 
     } else {
       let user = result.user;
+
+      writeUserData(user.uid, user.displayName, user.email, user.photoURL);
+      alert('¡Has Sido Logueado Exitosamente!');
+      htmlCall();
+
+
       writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);  
+
     }
   }
   signInGoogle(provider, cb);
@@ -86,14 +98,25 @@ facebookButton.addEventListener('click', () => {
   const cb = (error, result) => {
     if (error) {
 
+      console.log(error.code);
+      console.log(error.message);
+      console.log(error.email);
+      console.log(error.credential);
+
+    } else {
+      let user = result.user;
+      alert('¡Has Sido Logueado Exitosamente!');
+      htmlCall();
+      writeUserData(user.uid, user.displayName, user.email, user.photoURL);
+  
+
+
     } else {
       let user = result.user;
       writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);  
     }
   }
-
   signInFacebook(provider, cb);
-
 });
 
 const registerLink = document.getElementById('register-link');
@@ -111,3 +134,4 @@ loginLink.addEventListener('click', () => {
   loginSection.style.display = 'block';
   registerSection.style.display = 'none';
 });
+
