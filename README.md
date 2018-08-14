@@ -1,4 +1,4 @@
-# PROYECTO RED SOCIAL
+# [WariQué?](https://kalugn.github.io/lim-2018-05-bc-core-am-socialnetwork/src/#)- PROYECTO RED SOCIAL
 
 ## **INTRODUCCIÓN**
 ***
@@ -19,10 +19,9 @@ Fuente: [yumi.pe](http://www.yumi.pe/que-significa-huarique/)
 ## **PLANIFICACIÓN** 
 ***
 
-En este proyecto utilizamos descripciones de los ítems del backlog del producto como "historias de usuario" para organizar el trabajo en función del valor que se le aporta al usuario.
+En este proyecto utilizamos descripciones de los ítems del backlog del producto como "historias de usuario" y así organizar el trabajo en función del valor aportado.
 
-En laboratoria, la metodología de trabajo es realizada en squads ( grupos de 6 a 7 personas), con las que puedes dar y recibir feedback constante de tu proyecto.
-Debido a que el proyecto fue realizado por un equipo de dos o tres personas , se vio por conveniente utilizar el tablero trello, herramienta necesaria para un seguimiento virtual del progreso.
+Este proyecto fue realizado por un equipo de tres personas, para la organización se utilizó un tablero Trello para realizar seguimiento del progreso del equipo.
 
 
 | **Sprint** | **Tablero Kanban por equipo en trello** | 
@@ -33,23 +32,23 @@ Debido a que el proyecto fue realizado por un equipo de dos o tres personas , se
 ## **USER EXPERIENCE**
 ***
 
-La experiencia del usuario la hemos trabajado según las 5 fases del proceso de diseño de design thinking:
+La experiencia del usuario la hemos trabajado según las 5 fases del proceso de diseño de Design Thinking:
 
 ### **2.1. DESCUBRIMIENTO E INVESTIGACIÓN** 
  ![ux_descubrimiento.png](img/readme/ux_descubrimiento.png)
 
-En esta etapa la parte más importante es la de investigar y entender a nuestros principales usuarios.
+En esta etapa, la parte más importante es investigar y entender a nuestros principales usuarios.
 
-En una rápida investigación, se extrajo diferentes puntos de vista acerca del tema de la alimentación constituyente a la cocina tradicional .
+En una rápida investigación, se extrajo diferentes puntos de vista acerca del tema de la alimentación relacionados a la cocina tradicional .
 
 >**Hábitos del consumidor**
 Según una encuesta realizada a consumidores de alimentos, con características de vida comparables, se pudieron establecer importantes parámetros: 
-Dedicación de menor tiempo a la compra y a la elaboración de los alimentos.
-En la misma línea, se producirá una tendencia al plato único, o en todo caso, a comidas menos estructuradas.  
-Tendencia generalizada a hacer dietas periódicamente por razones estéticas y de salud.
+- Dedicación de menor tiempo a la compra y a la elaboración de los alimentos.
+- En la misma línea, se producirá una tendencia al plato único, o en todo caso, a comidas menos estructuradas.  
+- Tendencia generalizada a hacer dietas periódicamente por razones estéticas y de salud.
 Fuente: Estudio sobre tendencia de consumo de alimentos.
 
->La cocina tradicional regional constituye un patrimonio construido social e históricamente. Se trata de un acervo que se ha ido enriqueciendo y modificando generacionalmente y que se ha recreado y transformado localmente. Padilla expone que: 
+> La cocina tradicional regional constituye un patrimonio construido social e históricamente. Se trata de un acervo que se ha ido enriqueciendo y modificando generacionalmente y que se ha recreado y transformado localmente. Padilla expone que: 
 Las cocinas constituyen un elemento de sinergia sobre diversos aspectos de la vida de las comunidades: la agricultura, la dieta, los mercados tradicionales, las formas de conservar los alimentos, las tradiciones, los procedimientos desde las viejas tecnologías hasta las innovaciones más recientes. Así como también las cocinas están al centro de procesos de intercambios culturales regionales que van conformando las identidades en el ir y venir de sus pobladores. Fuente: La cocina tradicional regional como un elemento de identidad y desarrollo local (Padilla, 2006:2)
 
 >Hoy día, la disponibilidad de alimentos elaborados, las redes de distribución de los productos frescos, el precio de los alimentos, ponen a disposición de todas las mesas un número de productos alimentarios enorme, muchas veces ya elaborados, que complican enormemente la selección y la combinación saludable de los alimentos. Si a esto unimos que nuestra sociedad se ha mecanizado por completo, tenemos como resultado una nueva dificultad para mantenernos sanos. Fuente: Alimentación saludable, guía para las familias
@@ -62,7 +61,7 @@ Realizamos encuestas a 6 potenciales usuarios; personas que en general buscan un
 
 En ellos identificamos el problema de la desconfianza al buscar un nuevo lugar donde comer que no solo satisfaga con su sabor, sino que tenga un precio accesible y una buena atención de servicio.
 
-### **2.2 SINTESIS Y DEFINICION**
+### **2.2 SÍNTESIS Y DEFINICIÓN**
 ![ux_definición.png](img/readme/ux_definición.png)
 
 En esta fase usamos los datos coleccionados y entendemos los deseos y necesidades del público al que estará dirigido nuestro producto.
@@ -75,7 +74,7 @@ Concluímos que el principal problema que ellos atraviesan es que no confían en
 
 En esta fase buscamos las mejores maneras para ejecutar/desarrollar las funcionalidades definidas en la fase de ideación. Para esto hacemos un bechmarking de las principales redes sociales como análisis de competencias:
 
-**Benchmark de las principales redes sociales**
+**Benchmark de las principales páginas que se dedican a la recomendación de lugares de comida**
 
 **Sección de Gastronomía de [El Comercio](https://elcomercio.pe/noticias/gastronomia)**
 
@@ -224,6 +223,7 @@ A través de las entrevistas nos dimos cuenta de que las personas confían mucho
 La estrategia de difusión consiste principalmente en la recomendación 'boca a boca'. Además nos contactaremos con redactores de medios en línea de la sección tecnología y/o gastronomía, influencers y bloggueros para que realicen alguna mención de nuestra app en sus medios.
 
 Adicionalmente realizaremos una campaña de difusión en redes sociales (Twitter, Facebook e Instagram), con mayor fuerza en la hora de las comidas y fines de semana que es donde las personas se dan tiempo para buscar lugares para comer.
+
 
 
 ## **REQUERIMIENTOS DEL PROYECTO**
