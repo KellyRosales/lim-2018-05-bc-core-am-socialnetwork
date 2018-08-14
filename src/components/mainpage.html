@@ -6,51 +6,76 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Import Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
-  <!-- firestore -->
-  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+  <link rel="stylesheet" href="../../bootstrap-4.1.2-dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../css/mainpage.css">
 </head>
 
 <body>
-  <!-- bienvenida de usuarios -->
 
-  <!-- usuario -->
-  <div>
-    <p id="user-name"></p>
-  </div>
+  <!-- Section Container User -->
+  <main>
+    <div class="container-fluid">
+      <!-- titulo -->
+      <nav class="navbar ">
+        <img src="../../img/css/wariqué.png" class="img-responsive img-circle" id="img-warique">
+        <p class="text-center">¿Qué se te antoja hoy?</p>
+        <form class="form-inline">
+          <button type="button" id="btnLogout" class="btn btn-warning" value="Logout">Salir</button>
+        </form>
+      </nav>
+      <br>
+      <!-- contenedor de posts -->
+      <div class="col-md-6 mb-3">
+        <div class="input-group container-input">
+          <textarea id="comment" class="form-control" rows="5" placeholder="Comenta tu warique preferido"></textarea>
 
-  <h2>Postea</h2>
+          <select class="form-control col-md-4 mb-3">
+            <option>Small select</option>
+            <option>Small select</option>
+          </select>
 
-  <!-- ingreso de post -->
-  <div id="new-post" class="hiden">
-    <select name="Privacy">
-      <img id="privacy-option" src="/img/privacy-icon-36x36.png" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-      <option value="privacidad">Privacidad</option>
-      <option value="private">Privado</option>
-      <option value="public">Público</option>
-    </select>
-    <textarea class="form-control" id="post" rows="3"></textarea>
-    <button type="button" id="bttn-new-post" class="btn btn-danger">Publicar</button>
-  </div>
+          <span id="button-food">
+            <i class="fa fa-cutlery fa-3x" aria-hidden="true"></i>
+            <p>Publicar</p>
+          </span>
+        </div>
 
-  <!-- el contenido que se va creando -->
-  <h2>Post</h2>
-  <div id="post-container" class="hiden">
+        <!-- contenedor de posts nuevos  -->
+        <div id="container-new-post" class="col-xs-12 outline">
 
-  </div>
+        </div>
 
-  <!-- boton de salida -->
-  <div id="logout" class="hiden">
-    <button type="button" id="btnLogout" class="btn btn-info" value="Logout">Salir</button>
-  </div>
+      </div>
+  </main>
+  <!-- footer -->
+  <nav class="container footer">
+    <div class="row">
+      <div class="col">
+        <i class="material-icons">Menú principal</i>
+      </div>
+      <div class="col">
+        <i class="material-icons">Mensaje</i>
+      </div>
+      <div class="col">
+        <i class="material-icons">Notificaciones</i>
+      </div>
+    </div>
+  </nav>
 
-
-
-
+  <!-- Import jQuery and Bootstrap.js -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
   <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
   <script>
     // Initialize Firebase
     var config = {
@@ -63,9 +88,9 @@
     };
     firebase.initializeApp(config);
   </script>
-
+  <script src="../js/data.js"></script>
   <script src="../js/mainpage.js"></script>
-  <script src="../js/methods.js"></script>
+
 </body>
 
 </html>

@@ -1,10 +1,11 @@
 //Creating a function to show the users in fireBase
-window.writeUserData = (userId, name, email, imageURL) => {
+
+window.writeUserData = (userId, name, email, imageURL, cb) => {
     firebase.database().ref('users/' + userId).set({
         username: name,
         email: email,
         profile_picture: imageURL,
-    });
+    }).then(()=> cb())
 }
 
 window.signUp = (email, password, cb) => {
@@ -54,4 +55,3 @@ window.signInFacebook = (provider, cb) => {
             cb(error);
         })
 };
-
