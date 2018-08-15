@@ -9,10 +9,11 @@ $(document).ready(() => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       var codeUser = user.uid;
-      var nameUser = user.displayName;
+      var nameUser = user.email;
       var photoUser = user.photoURL;
       var like = 0;
       var  postPrivate =  postPrivate;
+
 
       $buttonFood.on('click', function (event) {
         if ($comment.val() && $comment.val() !== 0) {
@@ -25,7 +26,7 @@ $(document).ready(() => {
             hour: hour,
             code: codeUser,
             name: nameUser,
-            photo: photoUser,
+            photo: photoUser !== null ? photoUser : 'https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png',
             like: like,
             postStatus : postStatus ,
           });
@@ -50,6 +51,10 @@ $(document).ready(() => {
           $containerNewPost.html('');
           arrNewData.map(elem => {
 
+            var na = elem.name;
+            var be = na.indexOf('@')
+            // console.log(be);
+            var nameMail = na.slice(0,be) 
 
             $containerNewPost.prepend(`
                  <div class="col-xs-12 container-background container-food container-public-private">
@@ -57,7 +62,7 @@ $(document).ready(() => {
                       <img class="profile img-responsive img-circle user-background" src='${elem.photo}'>
                     </div>
                     <div id="container-publication" class="col-xs-10 ">
-                      <p class="text name" color=yellow >${elem.name}</p>
+                      <p class="text name" color=yellow >${nameMail}</p>
             
                       <div class="container-publication-day" data-newPublication=${elem.code}>
                         <p id="publication-day" class="text publication">${elem.publication}</p>
