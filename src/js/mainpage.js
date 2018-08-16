@@ -23,7 +23,10 @@ $(document).ready(() => {
         if ($comment.val() && $comment.val() !== 0) {
           var publication = $comment.val();
           var hour = moment().format('LT');
-
+          
+          if(publication === "" || publication.trim() === ""){
+            alert('ingrese un post')
+          } else{
           firebase.database().ref('bd').child('publication').push({
             publication: publication,
             hour: hour,
@@ -32,6 +35,7 @@ $(document).ready(() => {
             photo: photoUser !== null ? photoUser : 'https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png',
             like: like,
           });
+        }
         }
       });
 
@@ -50,7 +54,6 @@ $(document).ready(() => {
 
           $containerNewPost.html('');
           arrNewData.map(elem => {
-
             var na = elem.name;
             var be = na.indexOf('@')
             var nameMail = na.slice(0,be) 
