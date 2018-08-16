@@ -1,4 +1,4 @@
-# [WariQué?](https://kalugn.github.io/lim-2018-05-bc-core-am-socialnetwork/src/#)- PROYECTO RED SOCIAL
+# [WariQué?](https://kalugn.github.io/lim-2018-05-bc-core-am-socialnetwork/src/#) - [PROYECTO RED SOCIAL](https://kellyrosales.github.io/lim-2018-05-bc-core-am-socialnetwork/src/#)
 
 ## **INTRODUCCIÓN**
 ***
@@ -42,7 +42,7 @@ En esta etapa, la parte más importante es investigar y entender a nuestros prin
 En una rápida investigación, se extrajo diferentes puntos de vista acerca del tema de la alimentación relacionados a la cocina tradicional .
 
 >**Hábitos del consumidor**
-Según una encuesta realizada a consumidores de alimentos, con características de vida comparables, se pudieron establecer importantes parámetros: 
+Según entrevistas realizadas a consumidores de alimentos, con características de vida comparables, se pudieron establecer importantes parámetros: 
 - Dedicación de menor tiempo a la compra y a la elaboración de los alimentos.
 - En la misma línea, se producirá una tendencia al plato único, o en todo caso, a comidas menos estructuradas.  
 - Tendencia generalizada a hacer dietas periódicamente por razones estéticas y de salud.
@@ -53,11 +53,11 @@ Las cocinas constituyen un elemento de sinergia sobre diversos aspectos de la vi
 
 >Hoy día, la disponibilidad de alimentos elaborados, las redes de distribución de los productos frescos, el precio de los alimentos, ponen a disposición de todas las mesas un número de productos alimentarios enorme, muchas veces ya elaborados, que complican enormemente la selección y la combinación saludable de los alimentos. Si a esto unimos que nuestra sociedad se ha mecanizado por completo, tenemos como resultado una nueva dificultad para mantenernos sanos. Fuente: Alimentación saludable, guía para las familias
 
-**Encuesta**
+**Entrevistas**
 
 ![entrevista.jpeg](img/readme/entrevista.jpeg)
 
-Realizamos encuestas a 6 potenciales usuarios; personas que en general buscan un lugar nuevo para comer, que constantemente buscan probar nuevos sabores, familias que buscan almorzar algo diferente y rico, un fin de semana.
+Realizamos [entrevistas](https://docs.google.com/document/d/1ju-L5TVxon3ZpDkl7-jpykgjU1y7DrKnHiCcfjcfcew/edit) a 6 potenciales usuarios; personas que en general buscan un lugar nuevo para comer, que constantemente buscan probar nuevos sabores, familias que buscan almorzar algo diferente y rico, un fin de semana.
 
 En ellos identificamos el problema de la desconfianza al buscar un nuevo lugar donde comer que no solo satisfaga con su sabor, sino que tenga un precio accesible y una buena atención de servicio.
 
@@ -107,6 +107,10 @@ Con Google Maps podemos filtrar los resultados por valoración para ver solo los
 Dentro de su buscador encontramos sección Explorar, así encontraremos diferentes selecciones para ir a comer, merendar, cenar, etc... mostrando los sitios más populares para cada momento del día. En cada ficha de un restaurante veremos su información, fotos, horas populares y reseñas. (Fuente:www.xatakandroid.com)
 
 ![maps.png](img/readme/maps.png)
+
+**Cuadro comparativo del benchmark**
+
+![Bench](img/readme/bench.png)
 
 ### **2.4 PROTOTIPADO**
 ![ux_prototipado.png](img/readme/ux_prototipado.png)
@@ -170,13 +174,20 @@ Con respecto al logueo de la web, el usuario pudo identificar intuitivamente la 
 El usuario no pudo entender la funcionalidad del botón de notificaciones, además recomienda que el botón que redirige al perfil tenga una mayor visibilidad para poder interactuar.
 Aunque los botones de editar, eliminar y valorar son visibles y entendibles, no son intuitivos a primera vista. 
 
- **Conclusiones de testing con el producto en HTML**
+ ## **Conclusiones de testing con el producto en HTML**
 
 Como primer feedback el usuario no pudo acceder intuitivamente a los botones de publicar y editar.
 Como segundo feedback el usuario sugirió definir una medida estática al texto que se ingresa.
 
+Otros usuarios nos indicaron que les resultaba agradable la imagen del inicio de sesión, que loguearse con FB o Google. Sugirieron también que en lugar de poner el nombre del contacto/usuario se coloque el nombre del plato o restaurante.
+Que funcionen todos los botones puestos en el prototipo.
+
+Por otro lado, los colores empleados se relacionan, según la psicología del color, con lugares que tienen que ver con comida además de generar al interior de la web un ambiente cálido. 
+
 
 Luego de completar el proceso de diseño de experiencia del usuario, logramos responder a los requerimientos del proyecto planteados por Laboratoria.
+
+
 
 ## **DEFINICIÓN DEL PRODUCTO**
 ***
@@ -227,13 +238,13 @@ Adicionalmente realizaremos una campaña de difusión en redes sociales (Twitter
 
 
 
-## **REQUERIMIENTOS DEL PROYECTO**
+## **Requerimientos del proyecto**
 
-### Checklist
+### Checklist (Control interno)
 
 ### General
 
-* [ ] Producto final sigue los lineamientos del diseño.
+* [x] Producto final sigue los lineamientos del diseño.
 
 ### `README.md`
 
@@ -279,7 +290,7 @@ Adicionalmente realizaremos una campaña de difusión en redes sociales (Twitter
 * [x] Permite eliminar posts.
 * [x] Pide confirmación antes de borrar posts.
 * [x] Permite editar posts (in place).
-* [ ] Permite publicar y filtrar posts por público/yo.
+* [x] Permite publicar y filtrar posts por público/yo.
 * [x] Permite dar _like_ a los posts y llevar un conteo de ellos.
 
 
