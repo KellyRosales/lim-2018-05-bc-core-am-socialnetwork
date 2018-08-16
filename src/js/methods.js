@@ -1,13 +1,16 @@
-//SignUp variables
+//SignUp variables (registrarse)
+// const nameSignUp = document.getElementById('name-signup');
+const userSignUP = document.getElementById('user-signup');
 const emailSignUp = document.getElementById('email-signup');
+const passwordSignUp = document.getElementById('password-signup');
+const passwordValidation = document.getElementById('password-validation');
 const registerButton = document.getElementById('register');
 
-//SignIn variables
+//SignIn variables (logueare)
 const googleButton = document.getElementById('google-button');
 const facebookButton = document.getElementById('facebook-button');
 const emailSignIn = document.getElementById('email-signin');
 const passwordSignIn = document.getElementById('password-signin');
-const passwordSignUp = document.getElementById('password-signup');
 const signInButton = document.getElementById('sign-in-button');
 
 
@@ -18,21 +21,47 @@ const htmlCall = () => {
 
 //EMAIL register
 registerButton.addEventListener('click', () => {
-
-  registerEmail=(emailSignUp)=>{
-    emailSignUp.value ="Email válido"
+  let correo = emailSignUp.value;
+  let contraseña = passwordSignUp.value;
+  let contador = 0;
+  let contador2 = 0;
+  
+//validación de email por campos
+  for (i = 1; i < correo.length; i++) {
+    if (correo.charAt(i - 1) === "@") {
+      contador = contador + 1;
+    }
+    if (contador === 1) {
+      if (correo.charAt(i - 1) === ".") {
+        contador2 = contador2 + 1;
+      }
+    }
   }
 
-  registerPassword=(passwordSignUp)=>{
-    passwordSignUp.value="contraseña válida"
+  if (contador === 1 && contador2 === 2 || contador === 1) {
+  }
+  else {
+    alert('correo no valido, el correo debe tener el formato  ejemplo@hotmail.com')
+  }
+
+  if(contraseña.length<6){
+    alert('introduzca más de 6 caracteres en la contraseña')
+  }
+  
+  //validacion con expresión regular
+  registerEmail = (emailSignUp) => {
+    emailSignUp.value
+  }
+  registerPassword = (passwordSignUp) => {
+    passwordSignUp.value
   }
 
   const cb = (error, result) => {
     if (error) {
-    // console.log(error.code, error.message);
+      // console.log(error.code, error.message);
     } else {
       let user = result.user;
-      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);  
+      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);
     }
   };
 
@@ -40,17 +69,40 @@ registerButton.addEventListener('click', () => {
 
 });
 
+
 ///////////////////////////////////Métodos de Inicio de Sesión///////////////////////////////////
 
 //EMAIL LogIn button 
 signInButton.addEventListener('click', () => {
 
-  loginEmail=(emailSignIn)=>{
-    emailSignIn.value ="Email válido"
+  let correo = emailSignIn.value;
+  let contador = 0;
+  let contador2 = 0;
+
+  //validación de email por campos
+  for (i = 1; i < correo.length; i++) {
+    if (correo.charAt(i - 1) === "@") {
+      contador = contador + 1;
+    }
+    if (contador === 1) {
+      if (correo.charAt(i - 1) === ".") {
+        contador2 = contador2 + 1;
+      }
+    }
   }
 
-  loginPassword=(passwordSignIn)=>{
-    passwordSignIn.value= "Password válido"
+  if (contador === 1 && contador2 === 2 || contador === 1) {
+  }
+  else {
+    alert('correo no valido, por favor verifica errores')
+  }
+
+
+  loginEmail = (emailSignIn) => {
+    emailSignIn.value = "Email válido"
+  }
+  loginPassword = (passwordSignIn) => {
+    passwordSignIn.value = "Password válido"
   }
 
   const cb = (error, result) => {
@@ -74,7 +126,7 @@ googleButton.addEventListener('click', () => {
 
     } else {
       let user = result.user;
-      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);  
+      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);
     }
   }
   signInGoogle(provider, cb);
@@ -88,7 +140,7 @@ facebookButton.addEventListener('click', () => {
 
     } else {
       let user = result.user;
-      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);  
+      writeUserData(user.uid, user.displayName, user.email, user.photoURL, htmlCall);
     }
   }
 
@@ -111,3 +163,15 @@ loginLink.addEventListener('click', () => {
   loginSection.style.display = 'block';
   registerSection.style.display = 'none';
 });
+
+
+//validando registro
+// if (nameSignUp === "" || emailSignUp === "" || passwordSignUp === "" || passwordValidation === "") {
+//   alert("Este campo es obligatorio de llenar");
+//   return false;
+// }
+// else (nameSignUp.length > 30 || passwordSignUp > 50 || passwordValidation > 50){
+//   alert("Este campo es muy largo");
+//   return false;
+// }
+
