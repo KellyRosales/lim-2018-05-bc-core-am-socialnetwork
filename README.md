@@ -1,4 +1,4 @@
-# [WariQué?](https://kalugn.github.io/lim-2018-05-bc-core-am-socialnetwork/src/#)- PROYECTO RED SOCIAL
+# [WariQué?](https://kalugn.github.io/lim-2018-05-bc-core-am-socialnetwork/src/#) - [PROYECTO RED SOCIAL](https://kellyrosales.github.io/lim-2018-05-bc-core-am-socialnetwork/src/#)
 
 ## **INTRODUCCIÓN**
 ***
@@ -108,12 +108,9 @@ Dentro de su buscador encontramos sección Explorar, así encontraremos diferent
 
 ![maps.png](img/readme/maps.png)
 
-| **Página** | **Filtro por platos de comida** | **Filtro por ditritos** | **Calificaciones a las recomendaciones** | **Categorías** | **Buscador** |
-|**Gastronomía de El Comercio**| Si | Si | No | No | Sí |
-|**El Trinche**| No | Sí | No | Sí | Sí |
-|**Yelp**| No | No | Sí | Sí | Sí |
-|**Foursquare**| Sí | No | No | Sí | Sí |
-|**Google Maps**|No | Sí | Sí | Sí | Sí |
+**Cuadro comparativo del benchmark**
+
+![Bench](img/readme/bench.png)
 
 ### **2.4 PROTOTIPADO**
 ![ux_prototipado.png](img/readme/ux_prototipado.png)
@@ -241,13 +238,13 @@ Adicionalmente realizaremos una campaña de difusión en redes sociales (Twitter
 
 
 
-## **REQUERIMIENTOS DEL PROYECTO**
+## **Requerimientos del proyecto**
 
-### Checklist
+### Checklist (Control interno)
 
 ### General
 
-* [ ] Producto final sigue los lineamientos del diseño.
+* [x] Producto final sigue los lineamientos del diseño.
 
 ### `README.md`
 
@@ -293,7 +290,7 @@ Adicionalmente realizaremos una campaña de difusión en redes sociales (Twitter
 * [x] Permite eliminar posts.
 * [x] Pide confirmación antes de borrar posts.
 * [x] Permite editar posts (in place).
-* [ ] Permite publicar y filtrar posts por público/yo.
+* [x] Permite publicar y filtrar posts por público/yo.
 * [x] Permite dar _like_ a los posts y llevar un conteo de ellos.
 
 
