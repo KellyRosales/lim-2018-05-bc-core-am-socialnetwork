@@ -2,30 +2,30 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #ffffff;
-}
-
-.header {
-  background-color: #E02222
+  color: #000;
 }
 #img-warique{
   border-radius:100px 100px;
   /* outline: 1px solid black ; */
-  width: 15%;    
+  max-width: 5%;    
 }
 
-.text-center{
-  font-size: 100%;
+nav p{
+  font-size: 200%;
   font-family: 'Times New Roman', Times, serif;
   font-style: oblique;
   font-weight: bold;
-  color: #ffffff;
+  color: white;
+}
+nav{
+   background: rgb(194, 46, 46);
 }
 
-
 /* contenido en html  */
-
-/* h2{
+.text-center{
+  text-align: center
+}
+h2{
   background: red;
 }
 .container-comment{
@@ -35,17 +35,17 @@
 }
 
 /* contenido total  */
-/* .container-background {
+.container-background {
   border: 1px solid #3c4643;
   margin: 5em;
   border-radius: 0.3em;
-} */
-/* 
+}
+
 .container-food {
   display: flex;
   align-items: center;
-} */
-/* 
+}
+
 .user-background {
   width: 5rem;
 }
@@ -53,8 +53,8 @@
 .user-icon {
     width: 2rem;
   }
-   */
-/* .text {
+  
+.text {
     color: #000;
     text-align: justify;
   }
@@ -65,11 +65,11 @@
   
 .hour {
     font-size: 1rem;
-    margin: 0; 
-}*/
+    margin: 0;
+}
 
 /* para los iconos  */
-/* .like {
+.like {
   width: 2rem;
   cursor: pointer;
 }
@@ -80,13 +80,8 @@
 
 .edit {
   cursor: pointer;
-  color: rgba(176, 176, 233, 0.733);
-} */
-
-
-.container footer{
-  background-color: #E3EFD5;
-  }
+  color: rgba(0, 0, 255, 0.733);
+}
 
 .footer {
   position:fixed;
