@@ -1,21 +1,23 @@
-window.registerEmail = (email) => {
-    // Una expresión regular es un objeto que describe un patrón de caracteres.
-    let regExpRegisterEmail =new RegExp(/^[a-zA-Z0-9_\-~]{2,}@[a-zA-Z0-9_\-~]{2,}[a-zA-Z]{2,4}/)
-    let result;
-    if(regExpRegisterEmail.test(email)) {
-        result = true;
-    } else {
-        result = false;
+
+window.registerEmail = (emailSignUp) => {
+        // Una expresión regular es un objeto que describe un patrón de caracteres.
+        let regExpRegisterEmail = new RegExp(/^[a-zA-Z0-9_\-~]{2,}@[a-zA-Z0-9_\-~]{2,}[a-zA-Z]{2,4}/)
+        let result;
+        if (regExpRegisterEmail.test(emailSignUp)) {
+            result = true;
+        } else {
+            result = false;
+        }
+        return result;
     }
-    return result;
-};
 
 
-window.registerPassword = (password) => {
+
+window.registerPassword = (passwordSignUp) => {
 
     let regExpRegisterPassword = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/)
     let result;
-    if (regExpRegisterPassword.test(password)) {
+    if (regExpRegisterPassword.test(passwordSignUp)) {
         result = true;
     } else {
         result = false;
@@ -23,11 +25,11 @@ window.registerPassword = (password) => {
     return result;
 };
 
-window.loginEmail = (email) => {
+window.loginEmail = (emailSignIn) => {
 
-    let regExpLoginEmail =new RegExp(/^[a-zA-Z0-9_\-~]{2,}@[a-zA-Z0-9_\-~]{2,}[a-zA-Z]{2,4}/)
+    let regExpLoginEmail = new RegExp(/^[a-zA-Z0-9_\-~]{2,}@[a-zA-Z0-9_\-~]{2,}[a-zA-Z]{2,4}/)
     let result;
-    if (regExpLoginEmail.test(email)) {
+    if (regExpLoginEmail.test( emailSignUp )) {
         result = true;
     } else {
         result = false;
@@ -37,7 +39,7 @@ window.loginEmail = (email) => {
 
 window.loginPassword = (password) => {
 
-    let regExpLoginPassword =new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/)
+    let regExpLoginPassword = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/)
     let result;
     if (regExpLoginPassword.test(password)) {
         result = true;

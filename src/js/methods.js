@@ -22,6 +22,7 @@ const htmlCall = () => {
 //EMAIL register
 registerButton.addEventListener('click', () => {
   let correo = emailSignUp.value;
+  let contraseña = passwordSignUp.value;
   let contador = 0;
   let contador2 = 0;
   
@@ -42,6 +43,11 @@ registerButton.addEventListener('click', () => {
   else {
     alert('correo no valido, el correo debe tener el formato  ejemplo@hotmail.com')
   }
+
+  if(contraseña.length<6){
+    alert('introduzca más de 6 caracteres en la contraseña')
+  }
+  
   //validacion con expresión regular
   registerEmail = (emailSignUp) => {
     emailSignUp.value
@@ -69,8 +75,6 @@ registerButton.addEventListener('click', () => {
 //EMAIL LogIn button 
 signInButton.addEventListener('click', () => {
 
-  // let contraseñaLogueo= passwordSignUp.value;
-  // let contraseñaRegistro= passwordSignIn.value;
   let correo = emailSignIn.value;
   let contador = 0;
   let contador2 = 0;
